@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #3d3b62;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.todo {
+  max-height: 60vh;
+  overflow-y: auto;
+  margin-top: 5px;
+}
+
+.todo::-webkit-scrollbar {
+  display: none;
+}
+
+.todo-container {
+  background-color: #3d3b62;
+  padding: 20px;
+  border-radius: 10px;
+  margin: auto;
+
+  width: 70vh;
+}
+
+.input-todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin: auto;
+  font-size: 2em;
+  margin-bottom: 20px;
+
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #595775;
+  color: #ffffff;
+}
+
+input:focus {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+
+}
+
+.todo-item {
+  background-color: #595775;
+  padding: 10px;
+  border: 1px solid #3d3b62;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  width: 100%;
+
+}
+
+button {
+  margin-left: 5px;
+  border: none;
+  padding: 10px;
+  background-color: #ffffff;
+  color: #3d3b62;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 60px;
+}
+
+.delete-btn:hover {
+  color: #ff4b4b;
+}
+
+.todo-item-green {
+  background-color: #00ff00;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #3d3b62;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.tdlist {
+  color: #ffffff;
+  flex: 1;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.todo-item-green .tdlist {
+  text-decoration: line-through;
+  color: black;
+}
+
+.todo-item-green .done-btn {
+  background-color: #3d3b62;
+  color: white;
+}
+
+.submitbtn:disabled {
+  background-color: #7e7ba7;
+
+}
+
+.submitbtn {
+  margin: auto;
+  border: none;
+  padding: 10px;
+  background-color: #ffffff;
+  color: #3d3b62;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 60px
+}
+
+
+.input-todo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .todo-container {
+    width: 60vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .todo-container {
+    width: 50vh;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .todo-container {
+    width: 100%;
+  }
+  p{
+    margin-top: 1.25rem;
+  }
+}

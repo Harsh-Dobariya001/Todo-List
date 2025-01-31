@@ -10,13 +10,10 @@ const getLocalData = () => {
   }
 }
 function App() {
-
+  
   const [todo, setTodo] = useState(getLocalData())
   const [inptVlue, setInptVlue] = useState("")
   const [editData, setEditData] = useState(null)
-
-
-  console.log(todo);
 
   const submitHandlechng = (e) => {
     setInptVlue(e.target.value)
@@ -37,19 +34,24 @@ function App() {
     setInptVlue("")
   }
   const handalDelete = (indx) => {
-
+    if (editData !== null) {
+      return;
+    }
     const deleteData = todo.filter((val, index) => index !== indx);
     setTodo(deleteData)
   }
   const handalEdit = (indx) => {
     const todoToEdit = todo.find((val, index) => index === indx);
-    if (todoToEdit) {
+    if (todoToEdit.done === false) {
       setInptVlue(todoToEdit.name);
       setEditData(indx);
     }
   };
 
   const handalDone = (inx) => {
+    if (editData !== null) {
+      return;
+    }
 
     const done = todo.map((val, index) => {
       if (index === inx) {
@@ -78,9 +80,9 @@ function App() {
                   <div className={item.done === true ? "todo-item-green" : "todo-item"} >
                     <div className='tdlist'>{item?.name}</div>
                     <div>
+                      <button className="done-btn" onClick={() => handalDone(index)} >Done</button>
                       <button onClick={() => handalEdit(index)}>Edit</button>
                       <button className="delete-btn" onClick={() => handalDelete(index)} >Delete</button>
-                      <button className="done-btn" onClick={() => handalDone(index)} >Done</button>
                     </div>
                   </div >
                 </div>
@@ -105,17 +107,3 @@ function App() {
 
 export default App
 
-function ayncOpration(callBack) {
-  console.log("starting async")
-  setTimeout(function () {
-    callBack()
-  }, 1000)
-  console.log("end ");
-  
-
-}
-function callBack() {
-  console.log("callback start");
-
-}
-ayncOpration(callBack)
